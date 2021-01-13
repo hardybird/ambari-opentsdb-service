@@ -8,13 +8,15 @@ class Master(Script):
     self.install_packages(env)
     self.configure(env)
     import params
-  
+    
+    Execute('rm -rf '+ params.install_dir +';')
     if not os.path.exists(params.install_dir):  
       os.makedirs(params.install_dir)
     Execute('wget ' + params.download_url + ' -O /tmp/opentsdb.tar.gz >> '+params.log)
     Execute('tar -zxvf /tmp/opentsdb.tar.gz -C ' + params.install_dir + ' >> '+params.log )
     Execute('/bin/rm -f /tmp/opentsdb.tar.gz >> '+params.log)
     Execute('mv ' + params.install_dir + '/*/* ' + params.install_dir + ' >> '+params.log, ignore_failures=True)
+    Execute('cd ' + params.install_dir + '; mkdir build; cp -r third_party ./build;')
     Execute('cd ' + params.install_dir + '; ./build.sh >> '+params.log)
     
     if params.create_schema:

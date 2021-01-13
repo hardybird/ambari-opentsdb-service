@@ -6,7 +6,7 @@
             <name>OPENTSDBDEMO</name>
             <displayName>OpenTSDB</displayName>
             <comment>The Scalable Time Series Database. Store and serve massive amounts of time series data without losing granularity. This service is for &lt;b&gt;Demo purposes only&lt;/b&gt; and is &lt;b&gt;not officially supported&lt;/b&gt;</comment>
-            <version>2.2.1</version>
+            <version>2.4.0</version>
             <components>
                 <component>
                   <name>OPENTSDB_MASTER</name>
@@ -24,7 +24,7 @@
               <osSpecific>
                 <osFamily>redhat6,redhat7</osFamily>
                 <packages>
-                   <package><name>java-1.7.0-openjdk-devel</name></package>
+                   <package><name>java-1.8.0-openjdk-devel</name></package>
                    <package><name>gnuplot</name></package>                                                 
                 </packages>
               </osSpecific>
